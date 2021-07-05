@@ -19,6 +19,8 @@ public class Recurso {
     public Recurso() {
     }
 
+
+
     public String getId() {
         return id;
     }
@@ -66,4 +68,6 @@ public class Recurso {
     public void setIdArea(String idArea) {
         this.idArea = idArea;
     }
+
+
 }

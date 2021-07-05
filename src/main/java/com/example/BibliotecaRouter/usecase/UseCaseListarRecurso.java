@@ -5,24 +5,26 @@ import com.example.BibliotecaRouter.mapper.RecursoBibliotecaMapper;
 import com.example.BibliotecaRouter.repositorio.RepositorioRecursoBiblioteca;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
+
+import java.util.function.Supplier;
 
 @Service
-@Validated
-public class UseCaseRecurso implements GuardarRecurso {
+public class UseCaseListarRecurso implements Supplier<Flux<RecursoBibliotecaDTO>> {
+
     private final RepositorioRecursoBiblioteca repositorioRecursoBiblioteca;
     private final RecursoBibliotecaMapper recursoBibliotecaMapper = new RecursoBibliotecaMapper();
 
     @Autowired
-    public UseCaseRecurso(RepositorioRecursoBiblioteca repositorioRecursoBiblioteca) {
+    public UseCaseListarRecurso(RepositorioRecursoBiblioteca repositorioRecursoBiblioteca) {
         this.repositorioRecursoBiblioteca = repositorioRecursoBiblioteca;
+
     }
+
 
     @Override
-    public Mono<RecursoBibliotecaDTO> apply(RecursoBibliotecaDTO recursoBibliotecaDTO) {
-        var respuesta = repositorioRecursoBiblioteca.save(recursoBibliotecaMapper.mapperToRecurso(null).apply(recursoBibliotecaDTO)).map(recursoBibliotecaMapper.mapRecursoToDTO());
+    public Flux<RecursoBibliotecaDTO> get() {
+        var respuesta = repositorioRecursoBiblioteca.findAll().map(recursoBibliotecaMapper.mapRecursoToDTO());
         return respuesta;
     }
-
 }

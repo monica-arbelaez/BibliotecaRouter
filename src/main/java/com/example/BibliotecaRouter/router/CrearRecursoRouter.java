@@ -1,10 +1,10 @@
 package com.example.BibliotecaRouter.router;
 
-import com.example.BibliotecaRouter.dto.AreaTematicaDTO;
+
 import com.example.BibliotecaRouter.dto.RecursoBibliotecaDTO;
-import com.example.BibliotecaRouter.usecase.UseCaseCrearArea;
-import com.example.BibliotecaRouter.usecase.UseCaseRecurso;
+import com.example.BibliotecaRouter.usecase.UseCaseCrearRecurso;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -12,13 +12,14 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
+@Configuration
 public class CrearRecursoRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> crearRecurso(UseCaseRecurso useCaseRecurso) {
+    public RouterFunction<ServerResponse> crearRecurso(UseCaseCrearRecurso useCaseCrearRecurso) {
         return route(POST("/crearRecurso").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(RecursoBibliotecaDTO.class)
-                        .flatMap(questionDTO -> useCaseRecurso.apply(questionDTO)
+                        .flatMap(questionDTO -> useCaseCrearRecurso.apply(questionDTO)
                                 .flatMap(result -> ServerResponse.ok()
                                         .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result))

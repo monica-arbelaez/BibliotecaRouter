@@ -20,7 +20,7 @@ public class AreaTematicaMapper {
     }
 
     public Function<Area, AreaTematicaDTO> mapAreaToAreaDTO(){
-        return entity -> new AreaTematicaDTO(entity.getIdArea(), entity.getCategoriaArea());
+        return entity -> new AreaTematicaDTO(entity.getIdArea(),entity.getCategoriaArea());
     }
 
 

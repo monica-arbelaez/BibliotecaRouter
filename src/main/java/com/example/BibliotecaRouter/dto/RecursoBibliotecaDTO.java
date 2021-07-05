@@ -5,25 +5,19 @@ import javax.validation.constraints.NotBlank;
 public class RecursoBibliotecaDTO {
 
     private String idRecurso;
+
     @NotBlank
     private String tipoRecursoBiblioteca;
-    @NotBlank
     private Boolean recursoDisponible;
-    @NotBlank
     private String fechaPrestamoRecurso;
     @NotBlank
     private String nombreRecurso;
     @NotBlank
     private String idAreaTematica;
 
-    public RecursoBibliotecaDTO(String idRecurso, String tipoRecursoBiblioteca, Boolean recursoDisponible, String fechaPrestamoRecurso, String nombreRecurso, String idAreaTematica) {
-        this.idRecurso = idRecurso;
-        this.tipoRecursoBiblioteca = tipoRecursoBiblioteca;
-        this.recursoDisponible = recursoDisponible;
-        this.fechaPrestamoRecurso = fechaPrestamoRecurso;
-        this.nombreRecurso = nombreRecurso;
-        this.idAreaTematica = idAreaTematica;
+    public RecursoBibliotecaDTO() {
     }
+
 
     public String getIdRecurso() {
         return idRecurso;
@@ -72,4 +66,10 @@ public class RecursoBibliotecaDTO {
     public void setIdAreaTematica(String idAreaTematica) {
         this.idAreaTematica = idAreaTematica;
     }
+
+    public Boolean isRecursoDisponible() {
+        return recursoDisponible;
+    }
+
+
 }

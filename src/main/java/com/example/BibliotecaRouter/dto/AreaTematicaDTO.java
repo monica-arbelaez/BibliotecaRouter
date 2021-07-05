@@ -5,11 +5,13 @@ import java.util.Objects;
 public class AreaTematicaDTO {
 
     private String IdAreaTematica;
-
     private String categoriaAreaTematica;
 
     public AreaTematicaDTO(String idArea, String categoriaArea) {
+        this.categoriaAreaTematica = categoriaArea;
+        this.IdAreaTematica = idArea;
     }
+
 
     public String getIdAreaTematica() {
         return IdAreaTematica;
