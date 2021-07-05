@@ -1,8 +1,8 @@
-package com.example.BibliotecaRouter.BusinessUseCase;
+package com.example.BibliotecaRouter.UseCaseServiceRecurso;
 
 import com.example.BibliotecaRouter.dto.RespuestaDTO;
 import com.example.BibliotecaRouter.mapper.RecursoBibliotecaMapper;
-import com.example.BibliotecaRouter.mapper.RespuestaMapper;
+import com.example.BibliotecaRouter.mapper.RespuestaRecursoMapper;
 import com.example.BibliotecaRouter.repositorio.RepositorioRecursoBiblioteca;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,14 +14,14 @@ import java.util.function.Function;
 
 @Service
 @Validated
-public class UseCaseConsultarDisponibilidadRecurso implements Function<String, Mono<RespuestaDTO>> {
+public class UseCaseConsultarIsDisponible implements Function<String, Mono<RespuestaDTO>> {
 
     private final RepositorioRecursoBiblioteca repositorioRecursoBiblioteca;
     private final RecursoBibliotecaMapper recursoBibliotecaMapper= new RecursoBibliotecaMapper();
-    private final RespuestaMapper respuestaMapper = new RespuestaMapper();
+    private final RespuestaRecursoMapper respuestaRecursoMapper = new RespuestaRecursoMapper();
 
     @Autowired
-    public UseCaseConsultarDisponibilidadRecurso(RepositorioRecursoBiblioteca repositorioRecursoBiblioteca) {
+    public UseCaseConsultarIsDisponible(RepositorioRecursoBiblioteca repositorioRecursoBiblioteca) {
         this.repositorioRecursoBiblioteca = repositorioRecursoBiblioteca;
     }
 
@@ -29,7 +29,7 @@ public class UseCaseConsultarDisponibilidadRecurso implements Function<String, M
     public Mono<RespuestaDTO> apply(String id) {
         var respuesta = repositorioRecursoBiblioteca.findById(id)
                 .map(recursoBibliotecaMapper.mapRecursoToDTO());
-        return respuesta.map(respuestaMapper.mapperConsultarRecurso());
+        return respuesta.map(respuestaRecursoMapper.mapperConsultarRecurso());
 
     }
 }

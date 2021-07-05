@@ -1,4 +1,4 @@
-package com.example.BibliotecaRouter.usecase;
+package com.example.BibliotecaRouter.usecaseCRUD;
 
 import com.example.BibliotecaRouter.dto.RecursoBibliotecaDTO;
 import com.example.BibliotecaRouter.mapper.RecursoBibliotecaMapper;
@@ -8,26 +8,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
-import java.util.function.Function;
-
 @Service
 @Validated
-public class UseCaseEditarRecurso implements Function<RecursoBibliotecaDTO, Mono<RecursoBibliotecaDTO>> {
-
+public class UseCaseCrearRecurso implements GuardarRecurso {
     private final RepositorioRecursoBiblioteca repositorioRecursoBiblioteca;
-    private final RecursoBibliotecaMapper  recursoBibliotecaMapper = new RecursoBibliotecaMapper();
+    private final RecursoBibliotecaMapper recursoBibliotecaMapper = new RecursoBibliotecaMapper();
 
     @Autowired
-    public UseCaseEditarRecurso(RepositorioRecursoBiblioteca repositorioRecursoBiblioteca) {
+    public UseCaseCrearRecurso(RepositorioRecursoBiblioteca repositorioRecursoBiblioteca) {
         this.repositorioRecursoBiblioteca = repositorioRecursoBiblioteca;
     }
 
-
     @Override
     public Mono<RecursoBibliotecaDTO> apply(RecursoBibliotecaDTO recursoBibliotecaDTO) {
-        return repositorioRecursoBiblioteca.save(recursoBibliotecaMapper.mapperToRecurso(recursoBibliotecaDTO.getIdRecurso())
-                .apply(recursoBibliotecaDTO))
-                .map(recursoBibliotecaMapper.mapRecursoToDTO());
-
+        var respuesta = repositorioRecursoBiblioteca.save(recursoBibliotecaMapper.mapperToRecurso(null).apply(recursoBibliotecaDTO)).map(recursoBibliotecaMapper.mapRecursoToDTO());
+        return respuesta;
     }
+
 }

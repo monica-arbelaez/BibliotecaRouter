@@ -1,7 +1,7 @@
 package com.example.BibliotecaRouter.router;
 
 
-import com.example.BibliotecaRouter.BusinessUseCase.UseCaseConsultarDisponibilidadRecurso;
+import com.example.BibliotecaRouter.UseCaseServiceRecurso.UseCaseConsultarIsDisponible;
 import com.example.BibliotecaRouter.dto.RespuestaDTO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +16,8 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class ConsultarDisponibilidadRecursoRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> consultarDiponiblidadRecurso(UseCaseConsultarDisponibilidadRecurso caseConsultarDisponibilidadRecurso){
-        return route(GET("/consultar/recurso/{id}").and(accept(MediaType.APPLICATION_JSON)),
+    public RouterFunction<ServerResponse> consultarDiponiblidadRecurso(UseCaseConsultarIsDisponible caseConsultarDisponibilidadRecurso){
+        return route(GET("/consultar/disponibilidad/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request ->ServerResponse.ok()
                         .body(caseConsultarDisponibilidadRecurso.apply(request.pathVariable("id")), RespuestaDTO.class));
     }

@@ -2,7 +2,7 @@ package com.example.BibliotecaRouter.router;
 
 
 import com.example.BibliotecaRouter.dto.RecursoBibliotecaDTO;
-import com.example.BibliotecaRouter.usecase.UseCaseEditarRecurso;
+import com.example.BibliotecaRouter.usecaseCRUD.UseCaseEditarRecurso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;

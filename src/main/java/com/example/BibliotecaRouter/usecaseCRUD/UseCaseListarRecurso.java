@@ -1,4 +1,4 @@
-package com.example.BibliotecaRouter.usecase;
+package com.example.BibliotecaRouter.usecaseCRUD;
 
 import com.example.BibliotecaRouter.dto.RecursoBibliotecaDTO;
 import com.example.BibliotecaRouter.mapper.RecursoBibliotecaMapper;

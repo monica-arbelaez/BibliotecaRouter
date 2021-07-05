@@ -1,9 +1,8 @@
-package com.example.BibliotecaRouter.usecase;
+package com.example.BibliotecaRouter.usecaseCRUD;
 
 import com.example.BibliotecaRouter.dto.AreaTematicaDTO;
 import com.example.BibliotecaRouter.mapper.AreaTematicaMapper;
 import com.example.BibliotecaRouter.repositorio.RepositorioAreaTematica;
-import com.example.BibliotecaRouter.repositorio.RepositorioRecursoBiblioteca;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 

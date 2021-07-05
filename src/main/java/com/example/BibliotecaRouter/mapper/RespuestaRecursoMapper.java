@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.function.Function;
 
 
-public class RespuestaMapper {
+public class RespuestaRecursoMapper {
 
     private Date objDate = new Date();
     private  String strDateFormat = "hh: mm: ss a dd-MMM-aaaa";

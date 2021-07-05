@@ -1,4 +1,4 @@
-package com.example.BibliotecaRouter.usecase;
+package com.example.BibliotecaRouter.usecaseCRUD;
 
 import com.example.BibliotecaRouter.dto.AreaTematicaDTO;
 import reactor.core.publisher.Mono;

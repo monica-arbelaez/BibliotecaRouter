@@ -2,7 +2,7 @@ package com.example.BibliotecaRouter.router;
 
 
 import com.example.BibliotecaRouter.dto.AreaTematicaDTO;
-import com.example.BibliotecaRouter.usecase.UseCaseCrearArea;
+import com.example.BibliotecaRouter.usecaseCRUD.UseCaseCrearArea;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
