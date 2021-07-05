@@ -18,6 +18,22 @@ public class RecursoBibliotecaDTO {
     public RecursoBibliotecaDTO() {
     }
 
+    public RecursoBibliotecaDTO(String idRecurso, String tipoRecursoBiblioteca, Boolean recursoDisponible, String fechaPrestamoRecurso, String nombreRecurso, String idAreaTematica) {
+        this.idRecurso = idRecurso;
+        this.tipoRecursoBiblioteca = tipoRecursoBiblioteca;
+        this.recursoDisponible = recursoDisponible;
+        this.fechaPrestamoRecurso = fechaPrestamoRecurso;
+        this.nombreRecurso = nombreRecurso;
+        this.idAreaTematica = idAreaTematica;
+    }
+
+    public RecursoBibliotecaDTO(String tipoRecursoBiblioteca, Boolean recursoDisponible, String fechaPrestamoRecurso, String nombreRecurso, String idAreaTematica) {
+        this.tipoRecursoBiblioteca = tipoRecursoBiblioteca;
+        this.recursoDisponible = recursoDisponible;
+        this.fechaPrestamoRecurso = fechaPrestamoRecurso;
+        this.nombreRecurso = nombreRecurso;
+        this.idAreaTematica = idAreaTematica;
+    }
 
     public String getIdRecurso() {
         return idRecurso;
