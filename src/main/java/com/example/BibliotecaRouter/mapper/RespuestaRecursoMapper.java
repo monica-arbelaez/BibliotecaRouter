@@ -17,11 +17,11 @@ public class RespuestaRecursoMapper {
     public Function<RecursoBibliotecaDTO, RespuestaDTO> mapperPrestarRecurso(){
         return recurso ->{
             RespuestaDTO respuestaDTO = new RespuestaDTO();
-            String mensaje = recurso.isRecursoDisponible()?"El recurso te fue presatdo con exito": "este recurso no esta disponible para ser presatdo";
+            String mensaje = "";
             respuestaDTO.setMensaje(mensaje);
             respuestaDTO.setDisponible(recurso.isRecursoDisponible());
             respuestaDTO.setFechaPrestamo(recurso.getFechaPrestamoRecurso());
-            respuestaDTO.setNombre(objSDF.format(objDate));
+            respuestaDTO.setNombre(recurso.getNombreRecurso());
             return respuestaDTO;
 
         };

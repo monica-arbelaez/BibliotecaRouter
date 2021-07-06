@@ -19,8 +19,6 @@ public class Recurso {
     public Recurso() {
     }
 
-
-
     public String getId() {
         return id;
     }

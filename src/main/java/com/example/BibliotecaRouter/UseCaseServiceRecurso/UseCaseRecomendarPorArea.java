@@ -21,14 +21,11 @@ import java.util.function.Function;
 public class UseCaseRecomendarPorArea implements Function <String, Flux<RecursoBibliotecaDTO>> {
 
     private final RepositorioRecursoBiblioteca repositorioRecursoBiblioteca;
-    private final RepositorioAreaTematica repositorioAreaTematica;
     private final RecursoBibliotecaMapper recursoBibliotecaMapper = new RecursoBibliotecaMapper();
-    private final RespuestaAreaMapper respuestaAreaMapper = new RespuestaAreaMapper();
 
     @Autowired
-    public UseCaseRecomendarPorArea(RepositorioRecursoBiblioteca repositorioRecursoBiblioteca, RepositorioAreaTematica repositorioAreaTematica) {
+    public UseCaseRecomendarPorArea(RepositorioRecursoBiblioteca repositorioRecursoBiblioteca) {
         this.repositorioRecursoBiblioteca = repositorioRecursoBiblioteca;
-        this.repositorioAreaTematica = repositorioAreaTematica;
     }
 
 
