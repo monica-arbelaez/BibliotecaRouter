@@ -30,4 +30,5 @@ public class UseCaseListarArea implements Supplier<Flux<AreaTematicaDTO>>{
         var respuesta= repositorioAreaTematica.findAll().map(areaTematicaMapper.mapAreaToAreaDTO());
         return respuesta;
     }
+
 }

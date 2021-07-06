@@ -1,7 +1,7 @@
 package com.example.BibliotecaRouter.router;
 
+import com.example.BibliotecaRouter.UseCaseServiceRecurso.UseCaseRecomendarPorArea;
 import com.example.BibliotecaRouter.dto.RecursoBibliotecaDTO;
-import com.example.BibliotecaRouter.usecaseCRUD.UseCaseListarRecurso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -13,16 +13,14 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
-
 @Configuration
-public class ConsultarRecursoRouter {
+public class RecomendarPorAreaRouter {
+
     @Bean
-    public RouterFunction<ServerResponse> ListarTodosRecurso(UseCaseListarRecurso useCaseListarRecurso){
-        return route(GET("/recurso/consultar").and(accept(MediaType.APPLICATION_JSON)),
+    public RouterFunction<ServerResponse> RecomendarArea(UseCaseRecomendarPorArea useCaseRecomendarPorArea){
+        return route(GET("/area/recomendar/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request-> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromPublisher(useCaseListarRecurso.get(), RecursoBibliotecaDTO.class))
-        );
+                        .body(BodyInserters.fromPublisher(useCaseRecomendarPorArea.apply(request.pathVariable("id")),RecursoBibliotecaDTO.class)));
     }
-
 }

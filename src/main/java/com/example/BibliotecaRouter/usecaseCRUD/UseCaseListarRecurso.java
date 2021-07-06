@@ -5,11 +5,13 @@ import com.example.BibliotecaRouter.mapper.RecursoBibliotecaMapper;
 import com.example.BibliotecaRouter.repositorio.RepositorioRecursoBiblioteca;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Flux;
 
 import java.util.function.Supplier;
 
 @Service
+@Validated
 public class UseCaseListarRecurso implements Supplier<Flux<RecursoBibliotecaDTO>> {
 
     private final RepositorioRecursoBiblioteca repositorioRecursoBiblioteca;
@@ -20,7 +22,6 @@ public class UseCaseListarRecurso implements Supplier<Flux<RecursoBibliotecaDTO>
         this.repositorioRecursoBiblioteca = repositorioRecursoBiblioteca;
 
     }
-
 
     @Override
     public Flux<RecursoBibliotecaDTO> get() {

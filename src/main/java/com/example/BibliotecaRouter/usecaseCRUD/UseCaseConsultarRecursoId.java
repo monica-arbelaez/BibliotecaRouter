@@ -6,9 +6,11 @@ import com.example.BibliotecaRouter.mapper.RecursoBibliotecaMapper;
 import com.example.BibliotecaRouter.repositorio.RepositorioRecursoBiblioteca;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
 @Service
+@Validated
 public class UseCaseConsultarRecursoId {
 
     private final RepositorioRecursoBiblioteca repositorioRecursoBiblioteca;
